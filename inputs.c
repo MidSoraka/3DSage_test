@@ -96,6 +96,17 @@ int key_down(int key, void *ptr)
 		player->sr = val;
 	if (key == KEY_M)
 		player->m = val;
+	if (key == KEY_ENTER)
+	{
+		if (player->slowspeed != 1)
+			player->slowspeed = 1;
+		else
+			player->slowspeed = 0;
+	}
+	if (key == KEY_ESC)
+		exit(0);
+	if (key == KEY_R)
+		init(prm);
 	printf("key_down'\n");
 	return(0);
 }

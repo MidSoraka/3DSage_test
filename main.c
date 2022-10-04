@@ -143,6 +143,12 @@ void drawWall(int x1, int x2, int b1, int b2, int t1, int t2, int c, int s, t_pr
         {
             pixel(x, y, c, prm);
         }
+        if (prm->player->slowspeed == 1)
+        {
+            mlx_put_image_to_window(prm->mlx->mlx_ptr, prm->mlx->win_ptr, prm->mlx->image_ptr, 0, 0);
+            mlx_do_sync(prm->mlx->mlx_ptr);
+            usleep(10000);
+        }
     }
 
 }
@@ -234,7 +240,10 @@ int	mlx_window_loop(void *ptr)
     draw3D(prm);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->image_ptr, 0, 0);
 	mlx_do_sync(mlx->mlx_ptr);
-    usleep(50000);
+    if (prm->player->slowspeed == 0)
+    {
+        usleep(50000);
+    }
 	return (0);
 }
 
@@ -285,6 +294,7 @@ void init(t_prm *prm)
     player->z = 20;
     player->a = 0;
     player->l = 0;
+    player->slowspeed = 0;
 
     int s, w, v1=0, v2=0;
     for (s = 0; s<numSect;s++)

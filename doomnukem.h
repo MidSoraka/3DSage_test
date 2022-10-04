@@ -35,6 +35,7 @@
 # define KEY_DOWN 115
 # define KEY_SL 44
 # define KEY_SR 46
+# define KEY_ENTER 65293
 # define MOUSE_LEFT 1
 # define MOUSE_RIGHT 3
 # define MOUSE_MIDDLE_BUTTON 3
@@ -75,12 +76,15 @@ typedef struct s_player
 	int x,y,z;
 	int a;
 	int l;
+	int slowspeed;
 }	t_player;
+
 void	open_window(t_prm *prm);
 int		keyboard_input(int key, void *ptr);
 int		mlx_window_loop(void *ptr);
 int		key_up(int key, void *ptr);
 int		key_down(int key, void *ptr);
 void draw3D(t_prm *prm);
+void init(t_prm *prm);
 
 #endif

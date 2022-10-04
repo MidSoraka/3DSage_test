@@ -26,6 +26,7 @@ void	open_window(t_prm *prm)
 	mlx_loop_hook(mlx->mlx_ptr, mlx_window_loop, prm);
 	//mlx_key_hook(mlx->win_ptr, keyboard_input, prm);
 //	mlx_mouse_hook(mlx->win_ptr, mouse_input, prm);
+mlx_do_key_autorepeatoff(mlx->mlx_ptr);
 	mlx_hook(mlx->win_ptr, 3, 3, key_up, prm);
 	mlx_hook(mlx->win_ptr, 2, 2, key_down, prm);
 	mlx_loop(mlx->mlx_ptr);
